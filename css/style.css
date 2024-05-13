@@ -351,6 +351,203 @@ nav ul li a:hover { /*muda quando o cursor do mouse é colocado em cima*/
     display: block; /* Exibe o vídeo ao passar o mouse */
 }
 
+/*jornada*/
+
+.chamar{
+    background-color: #ff6417;
+    transform: translateY(-120px);
+}
+
+.chamar .container{
+    flex-direction: column;
+    margin: auto;
+    padding: 100px;
+    /* border: solid yellow 3px; */
+    display: flex;
+}
+
+.chamar .container h1{
+    /* border: solid red 3px; */
+    text-align: center;
+    color: white;
+    font-size: 54px;
+}
+
+.chamar .container .blocos{
+    display: flex;
+    /* border: solid black 3px; */
+    margin-top: 5%;
+    width: 100%;
+    align-items: center;
+}
+
+
+.chamar .container .blocos .atencao h2{
+    text-align: center;
+    justify-content: center;
+    margin-bottom: 10%;
+    font-weight: 500px;
+    font-size: 25px;
+    color: white;
+}
+
+.chamar .container .blocos .atencao h3{
+    text-align: center;
+    justify-content: center;
+    font-weight: 500px;
+    font-size: 20px;
+    color: white;
+
+}
+
+.chamar .container .blocos .atencao h3 span{
+    font-weight: 500px;
+    font-size: 25px;
+    color: #071425;
+}
+
+.chamar .container .blocos .atencao button {
+    margin-top: 5%;
+    padding: 15px 30px;
+    font-size: 18px;
+    background-color: white;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.chamar .container .blocos .atencao button:hover {
+    background-color: #ffe9d4;
+}
+
+.chamar .container .blocos .atencao p{
+    font-weight: 500px;
+    font-size: 20px;
+    color: white;
+}
+
+.chamar .container .blocos img.dlow{
+    display: flex;
+    /* border: solid aqua 3px; */
+    width: 30%;
+    margin: auto;
+    margin-left: 10%;
+    box-shadow: 2px 2px 1px black;
+    -webkit-box-shadow: -5px -10px 30px rgb(0, 46, 98), 6px 9px 15px rgb(0, 7, 100);
+    -moz-box-shadow: -5px -10px 30px rgb(0, 46, 98), 6px 9px 15px rgb(0, 7, 100);
+    margin-bottom: 10%;
+    transition: 1s;
+}
+
+.chamar .container .blocos img.dlow:hover{
+    display: flex;
+    /* border: solid aqua 3px; */
+    width: 30%;
+    margin: auto;
+    margin-left: 10%;
+    box-shadow: 2px 2px 1px black;
+    -webkit-box-shadow: -5px -10px 30px rgb(0, 46, 98), 6px 9px 15px rgb(0, 7, 100);
+    -moz-box-shadow: -5px -10px 30px rgb(0, 46, 98), 6px 9px 15px rgb(0, 7, 100);
+    margin-bottom: 10%;
+    -webkit-filter: drop-shadow(20px 20px 5px rgb(0, 7, 100));
+    filter: drop-shadow(20px 20px 5px rgb(0, 7, 100));
+}
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.footer {
+    display: flex;
+    background-color: #ff6417;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer img.esports{
+    /* border: solid yellow 3px; */
+    margin: auto;
+    width: 30%;
+    
+}
+
+.footer .footer-container{
+    flex-direction: column;
+    display: flex;
+}
+
+.footer .footer-container .footer-boxes{
+    /* border: solid black 3px; */
+    display: flex;
+    justify-content: space-around;
+}
+
+.footer .footer-container .footer-boxes .footer-box img.riot{
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    /* border: solid yellow 3px; */
+    margin: auto;
+    width: 50%;
+    display: flex;
+    
+}
+
+.footer .footer-container .footer-boxes .footer-box{
+    width: 30%;
+    justify-content: space-around;
+    /* border:solid white 3px; */
+    align-items: center;
+
+}
+
+.footer .footer-container .footer-boxes .footer-box h1{
+
+    /* border: solid red 3px; */
+    text-align: center;
+    color: white;
+}
+
+.footer .footer-container .footer-boxes .footer-box p{
+    text-align: center;
+    font-weight: 500px;
+    font-size: 17px;
+    color: white;
+}
+
+.footer p{
+    text-align: center;
+    font-weight: 500px;
+    font-size: 17px;
+    color: white;
+}
+
+.footer p a{
+    text-decoration:none;
+    color: white;
+}
+
+
+ 
+
 
 
 

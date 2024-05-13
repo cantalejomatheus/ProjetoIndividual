@@ -108,7 +108,14 @@
             <video autoplay loop muted plays-inline src="img/Solo Battles Teaser _ GBB23_ World League.mp4"></video>
         </div>
         <div class="texto-video">
-            <p>Se tornar um beatboxer é muito desafiador. Todos os beatboxers que estão na cena, no mais alto nível, tiveram que dar duro de si todos os dias, as vezes treinando 8 horas por dia, e muitas das vezes acabando com a garganta prejudicada, com o maxilar lesionado... Já teve casos, como do Codfish, que ele estava treinando sons de respiração enquanto fazia beatbox. Os sons que ele produziu com a boca foi tão intenso que ele desmaiou, e como ele estava de pé, ele caiu e bateu a cabeça na parede, tomando vários pontos. Por isso, apesar de acharmos que beatbox é só mais uma 'arte', lembra que, ela é tão difícil como todas as outras. Os beatboxers que estão nas cenas, são relativamente novos, mas mesmo assim, rimam há mais de 10 anos. Por isso, todo o apoio à eles.</p>
+            <p>Se tornar um beatboxer é muito desafiador. Todos os beatboxers que estão na cena, no mais alto nível,
+                tiveram que dar duro de si todos os dias, as vezes treinando 8 horas por dia, e muitas das vezes
+                acabando com a garganta prejudicada, com o maxilar lesionado... Já teve casos, como do Codfish, que ele
+                estava treinando sons de respiração enquanto fazia beatbox. Os sons que ele produziu com a boca foi tão
+                intenso que ele desmaiou, e como ele estava de pé, ele caiu e bateu a cabeça na parede, tomando vários
+                pontos. Por isso, apesar de acharmos que beatbox é só mais uma 'arte', lembra que, ela é tão difícil
+                como todas as outras. Os beatboxers que estão nas cenas, são relativamente novos, mas mesmo assim, rimam
+                há mais de 10 anos. Por isso, todo o apoio à eles.</p>
             <h1>Os beatboxers que mais fizeram história</h1>
         </div>
         <div class="video-container">
@@ -135,25 +142,72 @@
         </div>
     </div>
 
+    <div class="chamar" id="jornada">
+        <div class="container">
+            <h1>Comece sua jornada agora!</h1>
+            <div class="blocos">
+                <div class="atencao">
+                    <h2>Gostaria de saber com qual beatboxer você pode se identificar mais e começar a acompanhá-lo para entrar nesse mundo?</h2>
+                    <h3>Faça agora o nosso <span>Quiz</span> para obter a sua resposta!</h3>         
+                    <button onclick="goToLogin()">Começar Quiz</button>
+                </div>
+                <img class="dlow" src="img/card-dlow.png" alt="DLow image">
+            </div>
+        </div>
+    </div>
 
+
+
+
+    <div class="footer">
+        <div class="footer-container">
+            <img class="esports" src="css/Assets/LOL_Esports_Logo_Gold.gif" alt="">
+            <div class="footer-boxes">
+                <div class="footer-box">
+                    <h1>Redes Sociais</h1>
+
+                    <p><i class="fa-brands fa-instagram"></i><a target="_blank"
+                            href="https://www.instagram.com/matheuszxv/">Instagram</a></p>
+                    <p><i class="fa-brands fa-linkedin"></i><a target="_blank"
+                            href="https://www.linkedin.com/in/cantalejomatheus/">LinkedIn</a></p>
+                    <p><i class="fa-brands fa-github"></i><a target="_blank"
+                            href="https://github.com/cantalejomatheus">GitHub</a></p>
+                </div>
+                <div class="footer-box">
+                    <img class="riot" src="img/gbb-logo-branco-bg.png" alt="logo gbb">
+                </div>
+                <div class="footer-box">
+                    <h1>E-mail</h1>
+                    <p>matheus.braga@sptech.school</p>
+                </div>
+            </div>
+        </div>
+        <p>&copy; BeatBoxLife 2024</p>
+    </div>
 
 </body>
 
 </html>
 <script>
-function playVideo(wrapper) {
-    const imagem = wrapper.querySelector('.imagem');
-    const video = wrapper.querySelector('.video');
-    imagem.style.display = 'none';
-    video.style.display = 'block';
-    video.play();
-}
+    function playVideo(wrapper) {
+        const imagem = wrapper.querySelector('.imagem');
+        const video = wrapper.querySelector('.video');
+        imagem.style.display = 'none';
+        video.style.display = 'block';
+        video.play();
+    }
 
-function pauseVideo(wrapper) {
-    const imagem = wrapper.querySelector('.imagem');
-    const video = wrapper.querySelector('.video');
-    video.pause();
-    video.style.display = 'none';
-    imagem.style.display = 'block';
-}
+    function pauseVideo(wrapper) {
+        const imagem = wrapper.querySelector('.imagem');
+        const video = wrapper.querySelector('.video');
+        video.pause();
+        video.style.display = 'none';
+        imagem.style.display = 'block';
+    }
+
+    function goToLogin() {
+        window.location.href = "login.html"
+    }
+
+
 </script>

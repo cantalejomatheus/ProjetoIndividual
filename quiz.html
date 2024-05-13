@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <link rel="stylesheet" href="./css/quiz.css">
+    
+
+
+
+
+
+
+
+
+
+    <div class="quiz-container">
+        <h2>Você deseja conhecer mais o mundo do BeatBox?</h2>
+        <button id="start-quiz-btn" onclick="showQuiz()">Começar Quiz</button>
+        <div class="quiz-questions">
+            <!-- Pergunta 1 -->
+            <div class="question">
+                <h3>Pergunta 1:</h3>
+                <p>Qual é o principal objetivo do beatbox?</p>
+                <!-- Opções de resposta -->
+                <ul class="quiz-options">
+                    <li class="quiz-option" onclick="selectOption(this, 'pergunta2')">Criar sons usando apenas a voz
+                    </li>
+                    <li class="quiz-option" onclick="selectOption(this, 'pergunta2')">Tocar instrumentos musicais</li>
+                    <li class="quiz-option" onclick="selectOption(this, 'pergunta2')">Dançar breakdance</li>
+                    <li class="quiz-option" onclick="selectOption(this, 'pergunta2')">Pintar grafites</li>
+                </ul>
+            </div>
+            <!-- Pergunta 2 -->
+            <div class="question hidden" id="pergunta2">
+                <h3>Pergunta 2:</h3>
+                <p>Quais são os quatro principais sons usados no beatbox?</p>
+                <!-- Opções de resposta -->
+                <ul class="quiz-options">
+                    <li class="quiz-option" onclick="selectOption(this, 'pergunta3')">Bass, Snare, Hi-hat, KickDrum</li>
+                    <li class="quiz-option" onclick="selectOption(this, 'pergunta3')">Guitarra, Bateria, Baixo, Teclado
+                    </li>
+                    <li class="quiz-option" onclick="selectOption(this, 'pergunta3')">Saxofone, Trompete, Trombone,
+                        Piano</li>
+                    <li class="quiz-option" onclick="selectOption(this, 'pergunta3')">Violino, Flauta, Violoncelo, Oboé
+                    </li>
+                </ul>
+            </div>
+            <!-- Pergunta 3 -->
+            <div class="question hidden" id="pergunta3">
+                <h3>Pergunta 3</h3>
+                <p>Qual é o principal canal de beatbox do mundo?</p>
+                <ul class="quiz-options">
+                    <li class="quiz-option" onclick="selectOption(this, 'resultado')">Beatbox Masters</li>
+                    <li class="quiz-option" onclick="selectOption(this, 'resultado')">Beatbox Universe</li>
+                    <li class="quiz-option" onclick="selectOption(this, 'resultado')">Swissbeatbox</li>
+                    <li class="quiz-option" onclick="selectOption(this, 'resultado')">Beatbox Legends</li>
+                </ul>
+            </div>
+            <div class="question hidden" id="resultado">
+                <h3>Resultado</h3>
+                <p>Obrigado por participar do quiz!</p>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
+<script>
+
+ // Função para mostrar a tela de perguntas e respostas quando o botão for clicado
+ function showQuiz() {
+        // Seleciona a div com class="quiz-questions"
+        var quizQuestions = document.querySelector('.quiz-questions');
+
+        // Altera o estilo display para 'block' para mostrar a div
+        quizQuestions.style.display = 'block';
+    }
+
+    function selectOption(option, nextQuestionId) {
+        // Remove a classe 'selected' de todas as opções
+        var options = document.querySelectorAll('.quiz-option');
+        options.forEach(function (opt) {
+            opt.classList.remove('selected');
+        });
+
+        // Adiciona a classe 'selected' à opção clicada
+        option.classList.add('selected');
+
+        // Esconde a pergunta atual
+        var currentQuestion = option.closest('.question');
+        currentQuestion.style.display = 'none';
+
+        // Mostra a próxima pergunta
+        var nextQuestion = document.getElementById(nextQuestionId);
+        nextQuestion.style.display = 'block';
+    }
+
+</script>

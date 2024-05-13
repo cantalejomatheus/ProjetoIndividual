@@ -1,0 +1,76 @@
+.quiz-container {
+    background-color: #ff6417;
+    padding: 20px;
+    margin-top: 30px;
+    text-align: center;
+    transform: translateY(-120px);
+    height: 500px;
+}
+
+.quiz-container h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.quiz-container button {
+    padding: 15px 30px;
+    font-size: 18px;
+    background-color: white;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.quiz-container button:hover {
+    background-color: #ffe9d4;
+}
+
+/* Estilos para a tela de perguntas e respostas (após clicar no botão) */
+.quiz-questions {
+    margin-top: 30px;
+    display: none; /* Inicialmente oculta */
+}
+
+.question {
+    background-color: #f0f0f0;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+.question h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.quiz-options {
+    list-style-type: none;
+    padding: 0;
+}
+
+.quiz-option {
+    margin-bottom: 10px;
+    padding: 10px 20px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.quiz-option:hover {
+    background-color: #ff6417;
+}
+
+/* Estilo para opção selecionada */
+.quiz-option.selected {
+    background-color: #ff6417;
+    color: white;
+}
+
+/* Estilo para esconder as perguntas */
+.hidden {
+    display: none;
+}
