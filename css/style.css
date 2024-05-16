@@ -22,7 +22,7 @@ body {
 
 nav {
     border-bottom: solid #ff6417 1px;
-    width: 100%;
+    width: 100vw;
     height: 80px;
     position: fixed;
     padding: 20px 8%; /*superior-inferior*/ /*direito-esquerdo*/
@@ -69,46 +69,47 @@ nav ul li a:hover { /*muda quando o cursor do mouse é colocado em cima*/
 
 .container .logo-laranja-home {
     position: absolute;
-    top: 400px;
-    left: 100px;
+    top: 22vw;
+    left: 7vw;
+    width: 15vw;
 }
 
 .container .paragrafo-grande-home {
     text-decoration: none;
     color: #ff6417;
-    font-size: 280px;
+    font-size: 15vw;
     font-weight: 900;
     position: absolute;
-    top: 330px;
-    left: 380px;
+    top: 18vw;
+    left: 22vw;
 }
 
 .container .paragrafo-pequeno-home {
     text-decoration: none;
     color: #ff6417;
-    font-size: 70px;
+    font-size: 5vw;
     font-weight: 600;
     position: absolute;
     line-height: 1.15;
     letter-spacing: 5px;
-    top: 720px;
-    left: 130px;
+    top: 38vw;
+    left: 8vw;
 }
 
 
 /* sobre */
 .sobre-beatbox {
     background-color: #ff6417;
-    transform: translateY(-90px);
+    transform: translateY(-5.9vw);
     width: 100%;
-    height: 550px; 
+    height: 32vw; 
     
 }
 
 .sobre-beatbox .container {
     display: flex;
     margin: auto;
-    padding: 6% 250px;
+    padding: 6% 15vw;
     justify-content: center;
     flex-direction: column;
     text-align: center;
@@ -118,7 +119,7 @@ nav ul li a:hover { /*muda quando o cursor do mouse é colocado em cima*/
 .sobre-beatbox .container h1 {
     text-align: center;
     font-weight: 500;
-    font-size: 60px;
+    font-size: 4vw;
     color: white;
 }
 
@@ -133,7 +134,7 @@ nav ul li a:hover { /*muda quando o cursor do mouse é colocado em cima*/
     display: flex;
     text-align: center;
     font-weight: 400;
-    font-size: 17px;
+    font-size: 1.2vw;
     color: white;
 }
 
@@ -142,8 +143,8 @@ nav ul li a:hover { /*muda quando o cursor do mouse é colocado em cima*/
     /* border: solid yellow 3px;  */
     display: flex;
     background-color: #ff6417;
-    height: 250px;
-    transform: translateY(-90px);
+    height: 17vw;
+    transform: translateY(-6vw);
 }
 
 .sons .container .texto {
@@ -157,14 +158,14 @@ nav ul li a:hover { /*muda quando o cursor do mouse é colocado em cima*/
 .sons .container .texto h3 {
     text-align: center;
     font-weight: 500;
-    font-size: 40px;
+    font-size: 3vw;
     color: white;
 }
 
 .sons .container .texto p {
     text-align: center;
     font-weight: 400;
-    font-size: 17px;
+    font-size: 1.1vw;
     color: white;
 }
 
@@ -172,7 +173,7 @@ nav ul li a:hover { /*muda quando o cursor do mouse é colocado em cima*/
 .gbb {
     /*  border: solid skyblue 3px;  */
     background-color: #071425;
-    transform: translateY(-90px);
+    transform: translateY(-6vw);
     display: flex;
     width: 100%;
     margin: auto;
@@ -205,7 +206,7 @@ nav ul li a:hover { /*muda quando o cursor do mouse é colocado em cima*/
 .gbb .texto2 p{
     text-align: center;
     font-weight: 500px;
-    font-size: 17px;
+    font-size: 1.1vw;
     color: white;
     padding-top: 40px;
 }
@@ -226,7 +227,7 @@ nav ul li a:hover { /*muda quando o cursor do mouse é colocado em cima*/
 .gbb .blocos .missao h1{
     text-align: center;
     font-weight: 800;
-    font-size: 30px;
+    font-size: 1.5vw;
     color: white;
     margin-top: 25%;
     width: 110%;
@@ -234,23 +235,23 @@ nav ul li a:hover { /*muda quando o cursor do mouse é colocado em cima*/
 
 .gbb .blocos .missao .firstperson{
     /* border: solid yellow 3px; */
-    width: 55%;
+    width: 7vw;
 }
 
 .gbb .blocos .missao .secondperson{
     /* border: solid yellow 3px; */
-    width: 100%;
+    width: 14vw;
 }
 
 .gbb .blocos .missao .thirdperson{
     /* border: solid yellow 3px; */
-    width: 55%;
+    width: 8vw;
 }
 
 .gbb .blocos .missao p{
     text-align: center;
     font-weight: 300;
-    font-size: 17px;
+    font-size: 0.9vw; /*17px*/ 
     color: white;
 }
 
@@ -259,7 +260,7 @@ nav ul li a:hover { /*muda quando o cursor do mouse é colocado em cima*/
     box-shadow: 2px 2px 1px #000000;
     -webkit-box-shadow: -5px -10px 30px rgb(0, 46, 98), 6px 9px 15px rgb(0, 7, 100);
     -moz-box-shadow: -5px -10px 30px rgb(0, 46, 98), 6px 9px 15px rgb(0, 7, 100);
-    width: 50%;
+    width: 40vw;
     margin: auto;
     margin-left: 2%;
     cursor: pointer;
@@ -280,7 +281,7 @@ nav ul li a:hover { /*muda quando o cursor do mouse é colocado em cima*/
 
 /*videos*/
 .texto-video {
-    height: 230px; 
+    height: 15vw; 
     display: flex;
     text-align: center; 
     flex-direction: column;
@@ -292,14 +293,14 @@ nav ul li a:hover { /*muda quando o cursor do mouse é colocado em cima*/
     display: flex;
     justify-content: center;
     font-weight: 500;
-    font-size: 17px;
+    font-size: 1.1vw;
     color: white;
     width: 100%;
     margin: 1%;
 }
 .texto-video h1{
     font-weight: 800;
-    font-size:60px;
+    font-size:4vw;
     color: white;
     width: 100%;
 }
@@ -351,147 +352,158 @@ nav ul li a:hover { /*muda quando o cursor do mouse é colocado em cima*/
     display: block; /* Exibe o vídeo ao passar o mouse */
 }
 
+
+
+
+
+
+
+
 /*jornada*/
 
 .chamar{
     background-color: #ff6417;
-    transform: translateY(-120px);
+    padding: 80px 20px;
+    text-align: center;
+    color: white;
+    transform: translateY(-6vw);
 }
 
-.chamar .container{
+.chamar h1{
+    font-size: 48px;
+    margin-bottom: 30px;
+}
+
+.blocos2{
+    display: flex;
     flex-direction: column;
-    margin: auto;
-    padding: 100px;
-    /* border: solid yellow 3px; */
-    display: flex;
-}
-
-.chamar .container h1{
-    /* border: solid red 3px; */
-    text-align: center;
-    color: white;
-    font-size: 54px;
-}
-
-.chamar .container .blocos{
-    display: flex;
-    /* border: solid black 3px; */
-    margin-top: 5%;
-    width: 100%;
     align-items: center;
+    justify-content: flex-end;
+    margin-top: 50px;
+    position: relative;
 }
 
-
-.chamar .container .blocos .atencao h2{
-    text-align: center;
-    justify-content: center;
-    margin-bottom: 10%;
-    font-weight: 500px;
-    font-size: 25px;
-    color: white;
+.atencao {
+    background-color: #071425;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1vw;
+    max-width: 40vw;
+    /*height: 40vh;*/
 }
 
-.chamar .container .blocos .atencao h3{
-    text-align: center;
-    justify-content: center;
-    font-weight: 500px;
+.atencao h2{
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.atencao h3{
     font-size: 20px;
-    color: white;
-
+    margin-bottom: 20px;
 }
 
-.chamar .container .blocos .atencao h3 span{
-    font-weight: 500px;
-    font-size: 25px;
-    color: #071425;
+.atencao span{
+    color: #ff6417;
+    font-weight: bold;
 }
 
-.chamar .container .blocos .atencao button {
-    margin-top: 5%;
+.atencao button {
     padding: 15px 30px;
     font-size: 18px;
-    background-color: white;
-    color: black;
+    background-color: #ff6417;
+    color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
-.chamar .container .blocos .atencao button:hover {
-    background-color: #ffe9d4;
+
+.atencao button:hover {
+    background-color: #e65c00;
 }
 
-.chamar .container .blocos .atencao p{
-    font-weight: 500px;
-    font-size: 20px;
+.codfish{
+    width: 100%;
+    max-width: 20vw;
+    border-radius: 10px;
+    box-shadow: 1vw 0.4vw 1vw rgba(0, 0, 0, 0.7); /* Adicionando sombra para profundidade */
+    transition: transform 0.3s ease;
+    position: absolute;
+    right: 3vw;
+}
+
+.codfish:hover{
+    transform: scale(1.05);
+}
+
+/*acompanhe o canal*/
+.acompanhe {
+    width: 100%;
+    height: 67vh;
+    /* background-image: linear-gradient(rgb(70, 70, 220), rgb(148, 148, 243)); */
+    position: relative;
+    display: flex;
+    padding: 0 5%;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.container-acompanhe a {
+    text-decoration: none;
+    display: inline-block;
     color: white;
-}
-
-.chamar .container .blocos img.dlow{
-    display: flex;
-    /* border: solid aqua 3px; */
-    width: 30%;
-    margin: auto;
-    margin-left: 10%;
-    box-shadow: 2px 2px 1px black;
-    -webkit-box-shadow: -5px -10px 30px rgb(0, 46, 98), 6px 9px 15px rgb(0, 7, 100);
-    -moz-box-shadow: -5px -10px 30px rgb(0, 46, 98), 6px 9px 15px rgb(0, 7, 100);
-    margin-bottom: 10%;
+    font-size: 20px;
+    border: 2px solid white;
+    padding: 12px 10vh;
+    border-radius: 50px;
+    margin-top: 20px;
+    cursor: pointer;
+    border-top-right-radius:5px ;
+    border-bottom-left-radius:5px ;
+    
     transition: 1s;
+    
 }
 
-.chamar .container .blocos img.dlow:hover{
-    display: flex;
-    /* border: solid aqua 3px; */
-    width: 30%;
-    margin: auto;
-    margin-left: 10%;
-    box-shadow: 2px 2px 1px black;
-    -webkit-box-shadow: -5px -10px 30px rgb(0, 46, 98), 6px 9px 15px rgb(0, 7, 100);
-    -moz-box-shadow: -5px -10px 30px rgb(0, 46, 98), 6px 9px 15px rgb(0, 7, 100);
-    margin-bottom: 10%;
-    -webkit-filter: drop-shadow(20px 20px 5px rgb(0, 7, 100));
-    filter: drop-shadow(20px 20px 5px rgb(0, 7, 100));
+.container-acompanhe a:hover {
+    text-decoration: none;
+    display: inline-block;
+    color: white;
+    font-size: 20px;
+    border: 1px solid white;
+    padding: 12px 10vh;
+    border-radius: 50px;
+    margin-top: 20px;
+    background-color: #ff6417;
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+    border-top-left-radius:5px ;
+    border-bottom-right-radius:5px ;
 }
 
- 
+.back-video {
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/*rodapé*/
 .footer {
     display: flex;
     background-color: #ff6417;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-}
-
-.footer img.esports{
-    /* border: solid yellow 3px; */
-    margin: auto;
-    width: 30%;
-    
+    height: 25vh;
 }
 
 .footer .footer-container{
     flex-direction: column;
     display: flex;
+    margin-top: 2.5vw;
 }
 
 .footer .footer-container .footer-boxes{
@@ -500,12 +512,11 @@ nav ul li a:hover { /*muda quando o cursor do mouse é colocado em cima*/
     justify-content: space-around;
 }
 
-.footer .footer-container .footer-boxes .footer-box img.riot{
+.footer .footer-container .footer-boxes .footer-box img.bbl{
     align-items: center;
     justify-content: center;
     margin: auto;
     /* border: solid yellow 3px; */
-    margin: auto;
     width: 50%;
     display: flex;
     
@@ -524,19 +535,20 @@ nav ul li a:hover { /*muda quando o cursor do mouse é colocado em cima*/
     /* border: solid red 3px; */
     text-align: center;
     color: white;
+    font-size: 2vw;
 }
 
 .footer .footer-container .footer-boxes .footer-box p{
     text-align: center;
     font-weight: 500px;
-    font-size: 17px;
+    font-size: 1vw;
     color: white;
 }
 
 .footer p{
     text-align: center;
     font-weight: 500px;
-    font-size: 17px;
+    font-size: 1vw;
     color: white;
 }
 
@@ -553,47 +565,6 @@ nav ul li a:hover { /*muda quando o cursor do mouse é colocado em cima*/
 
 
 
-/* Estilos para telas menores */
-@media screen and (max-width: 767px) {
-    /* Ajuste o tamanho do logo */
-    nav .logo {
-        width: 80px;
-    }
-
-    /* Ajuste o espaçamento entre os itens do menu */
-    nav ul li {
-        margin-left: 10px;
-    }
-
-    /* Ajuste o tamanho da imagem e do texto na seção "Sobre Beatbox" */
-    .sobre-beatbox .container img {
-        width: 50%;
-    }
-
-    .sobre-beatbox .container .info {
-        font-size: 15px;
-    }
-
-    /* Ajuste o tamanho do texto e das imagens nos blocos da seção "GBB" */
-    .gbb .blocos .missao h1 {
-        font-size: 15px;
-    }
-
-    .gbb .blocos .missao p {
-        font-size: 12px;
-    }
-
-    .gbb .blocos .missao .firstperson,
-    .gbb .blocos .missao .secondperson,
-    .gbb .blocos .missao .thirdperson {
-        width: 100%;
-    }
-
-    /* Ajuste o tamanho do vídeo */
-    .gbb .blocos video {
-        width: 100%;
-    }
-}
 
 
 
