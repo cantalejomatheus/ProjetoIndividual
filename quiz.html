@@ -4,17 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./css/quiz.css">
 </head>
 <body>
-    <link rel="stylesheet" href="./css/quiz.css">
     
-
-
-
-
-
-
-
+    <div class="header" id="home">
+        <nav>
+            <img class="logo" src="img/logo-gbb.png"></img>
+            <ul>
+                <li><a href="quiz.html">Quiz</a></li>
+                <li><a href="index.html">Sair</a></li>
+                <li><a href="#">Olá Usuário!</a></li>
+            </ul>
+        </nav>
+    </div>
 
 
     <div class="quiz-container">
@@ -24,40 +27,36 @@
             <!-- Pergunta 1 -->
             <div class="question">
                 <h3>Pergunta 1:</h3>
-                <p>Qual é o principal objetivo do beatbox?</p>
+                <p>Com qual som você se identifica mais?</p>
                 <!-- Opções de resposta -->
                 <ul class="quiz-options">
-                    <li class="quiz-option" onclick="selectOption(this, 'pergunta2')">Criar sons usando apenas a voz
-                    </li>
-                    <li class="quiz-option" onclick="selectOption(this, 'pergunta2')">Tocar instrumentos musicais</li>
-                    <li class="quiz-option" onclick="selectOption(this, 'pergunta2')">Dançar breakdance</li>
-                    <li class="quiz-option" onclick="selectOption(this, 'pergunta2')">Pintar grafites</li>
+                    <li class="quiz-option" onclick="selectOption(this, 'pergunta2')">KickDrum</li> <!--napom-->
+                    <li class="quiz-option" onclick="selectOption(this, 'pergunta2')">Hi-Hat</li> <!--dlow-->
+                    <li class="quiz-option" onclick="selectOption(this, 'pergunta2')">Snare</li> <!--helium-->
+                    <li class="quiz-option" onclick="selectOption(this, 'pergunta2')">Bass</li> <!--codfish-->
                 </ul>
             </div>
             <!-- Pergunta 2 -->
             <div class="question hidden" id="pergunta2">
                 <h3>Pergunta 2:</h3>
-                <p>Quais são os quatro principais sons usados no beatbox?</p>
+                <p>Na sua opinião, o que você considera uma boa música?</p>
                 <!-- Opções de resposta -->
                 <ul class="quiz-options">
-                    <li class="quiz-option" onclick="selectOption(this, 'pergunta3')">Bass, Snare, Hi-hat, KickDrum</li>
-                    <li class="quiz-option" onclick="selectOption(this, 'pergunta3')">Guitarra, Bateria, Baixo, Teclado
-                    </li>
-                    <li class="quiz-option" onclick="selectOption(this, 'pergunta3')">Saxofone, Trompete, Trombone,
-                        Piano</li>
-                    <li class="quiz-option" onclick="selectOption(this, 'pergunta3')">Violino, Flauta, Violoncelo, Oboé
-                    </li>
+                    <li class="quiz-option" onclick="selectOption(this, 'pergunta3')">Quando tem uma boa melodia</li> <!--codfish-->
+                    <li class="quiz-option" onclick="selectOption(this, 'pergunta3')">Quando tem uma boa estrutura de sons</li> <!--helium-->
+                    <li class="quiz-option" onclick="selectOption(this, 'pergunta3')">Quando tem muito drops</li> <!--dlow-->
+                    <li class="quiz-option" onclick="selectOption(this, 'pergunta3')">Quando tem um estilo totalmente diferente do convencional</li> <!--napom-->
                 </ul>
             </div>
             <!-- Pergunta 3 -->
             <div class="question hidden" id="pergunta3">
                 <h3>Pergunta 3</h3>
-                <p>Qual é o principal canal de beatbox do mundo?</p>
+                <p>Você se considera uma pessoa mais...</p>
                 <ul class="quiz-options">
-                    <li class="quiz-option" onclick="selectOption(this, 'resultado')">Beatbox Masters</li>
-                    <li class="quiz-option" onclick="selectOption(this, 'resultado')">Beatbox Universe</li>
-                    <li class="quiz-option" onclick="selectOption(this, 'resultado')">Swissbeatbox</li>
-                    <li class="quiz-option" onclick="selectOption(this, 'resultado')">Beatbox Legends</li>
+                    <li class="quiz-option" onclick="selectOption(this, 'resultado')">Calmo</li> <!--codfish-->
+                    <li class="quiz-option" onclick="selectOption(this, 'resultado')">Agressivo</li> <!--helium-->
+                    <li class="quiz-option" onclick="selectOption(this, 'resultado')">Paciente</li> <!--dlow-->
+                    <li class="quiz-option" onclick="selectOption(this, 'resultado')">Observador</li> <!--napom-->
                 </ul>
             </div>
             <div class="question hidden" id="resultado">
@@ -65,6 +64,33 @@
                 <p>Obrigado por participar do quiz!</p>
             </div>
         </div>
+    </div>
+    
+
+
+    <div class="footer">
+        <div class="footer-container">
+            <div class="footer-boxes">
+                <div class="footer-box">
+                    <h1>Redes Sociais</h1>
+
+                    <p><i class="fa-brands fa-instagram"></i><a target="_blank"
+                            href="https://www.instagram.com/matheuszxv/">Instagram</a></p>
+                    <p><i class="fa-brands fa-linkedin"></i><a target="_blank"
+                            href="https://www.linkedin.com/in/cantalejomatheus/">LinkedIn</a></p>
+                    <p><i class="fa-brands fa-github"></i><a target="_blank"
+                            href="https://github.com/cantalejomatheus">GitHub</a></p>
+                </div>
+                <div class="footer-box">
+                    <img class="bbl" src="img/gbb-logo-branco-bg.png" alt="logo gbb">
+                </div>
+                <div class="footer-box">
+                    <h1>E-mail</h1>
+                    <p>matheus.braga@sptech.school</p>
+                </div>
+            </div>
+        </div>
+        <p>&copy; BeatBoxLife 2024</p>
     </div>
 
 
