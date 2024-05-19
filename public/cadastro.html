@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BeatBoxLife - Cadastro</title>
+
+    <link rel="icon" href="img/logo-gbb-icone.ico">
+    <link rel="stylesheet" href="css/signup-style.css">
+
+
+    <!--importando poppins-->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap">
+</head>
+
+<body>
+    <div class="header" id="home">
+        <nav>
+            <img class="logo" src="img/logo-gbb.png"></img>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html #beatbox">Beatbox</a></li>
+                <li><a href="index.html #gbb">GBB</a></li>
+                <li><a href="index.html #jornada">Jornada</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="cadastro.html">Cadastro</a></li>
+            </ul>
+        </nav>
+    </div>
+
+
+
+
+
+
+
+    <div class="signup-container">
+        <div class="content">
+            <img src="img/gbb2-napom.jpg" alt="Imagem de fundo">
+            <div class="form-container">
+                <h2>Cadastre-se</h2>
+                <form>
+                    <div class="form-group">
+                        <label for="name">Nome:</label>
+                        <input type="text" id="name_input" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email_input" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Senha:</label>
+                        <input type="password" id="senha_input" name="password" required>
+                    </div>
+                    <span id="span_erro_cadastro" style="display: none; color: red;">* Preencha todos os campos corretamente para prosseguir.</span>
+                    <button type="submit" onclick="cadastrar()">Cadastrar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+    <div class="footer">
+        <div class="footer-container">
+            <div class="footer-boxes">
+                <div class="footer-box">
+                    <h1>Redes Sociais</h1>
+
+                    <p><i class="fa-brands fa-instagram"></i><a target="_blank"
+                            href="https://www.instagram.com/matheuszxv/">Instagram</a></p>
+                    <p><i class="fa-brands fa-linkedin"></i><a target="_blank"
+                            href="https://www.linkedin.com/in/cantalejomatheus/">LinkedIn</a></p>
+                    <p><i class="fa-brands fa-github"></i><a target="_blank"
+                            href="https://github.com/cantalejomatheus">GitHub</a></p>
+                </div>
+                <div class="footer-box">
+                    <img class="riot" src="img/gbb-logo-branco-bg.png" alt="logo gbb">
+                </div>
+                <div class="footer-box">
+                    <h1>E-mail</h1>
+                    <p>matheus.braga@sptech.school</p>
+                </div>
+            </div>
+        </div>
+        <p>&copy; BeatBoxLife 2024</p>
+    </div>
+</body>
+
+</html>
+<script>
+    function cadastrar() {
+
+        var nomeVar = name_input.value
+        var emailVar = email_input.value
+        var senhaVar = senha_input.value
+
+        if (nomeVar == "" ||
+            emailVar == "" ||
+            senhaVar == ""
+        ) {
+            document.getElementById("span_erro_cadastro").style.display = "block";
+            return
+        }
+
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                nomeServer: nomeVar,
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            }),
+        })
+            .then((resposta) => {
+                console.log("resposta: ", resposta);
+
+                if (resposta.ok) {
+                    alert('Cadastro realizado com sucesso! Redirecionando para a tela de login...')
+                    window.location = "login.html";
+
+                } else {
+                    throw "Houve um erro ao tentar realizar o cadastro!";
+                }
+            })
+            .catch((resposta) => {
+                console.log(`#ERRO: ${resposta}`);
+                return;
+            })
+    }
+</script>
