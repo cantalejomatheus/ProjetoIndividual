@@ -12,4 +12,14 @@ router.post("/cadastrar", (req, res)=>{
     usuarioController.cadastrar(req, res);
 });
 
+router.post('/save-beatboxer-count', function (req, res) {
+    usuarioController.saveBeatboxerCount(req, res);
+});
+
+router.get('/beatboxer-count', function (req, res) {
+    usuarioController.getBeatboxerCount(req, res);
+});
+
+
+
 module.exports = router;

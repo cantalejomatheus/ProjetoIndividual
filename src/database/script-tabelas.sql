@@ -41,7 +41,7 @@ CREATE TABLE usuario (
     nome VARCHAR(50) NOT NULL,
     email VARCHAR(50) NOT NULL,
     senha VARCHAR(50) NOT NULL,
-    fkQuiz INT,
+    fkQuiz INT NOT NULL,
     FOREIGN KEY (fkQuiz) REFERENCES quizResultado(idQuiz)
 );
 

@@ -69,11 +69,57 @@ function cadastrar(req, res){
         )
 
     }
-
-
 }
+
+// Novo controlador para salvar a contagem dos beatboxers
+function saveBeatboxerCount(req, res) {
+    var beatboxer = req.body.beatboxer;
+    var userId = req.body.userId;
+
+    if (beatboxer == undefined || userId == undefined) {
+        res.status(400).send("Beatboxer ou usuário indefinido!");
+    } else {
+        usuarioModel.saveBeatboxerCount(beatboxer, userId)
+            .then(
+                (resultado) => {
+                    res.json({ message: 'Contagem atualizada com sucesso' });
+                }
+            ).catch(
+                (erro) => {
+                    console.log(erro);
+                    console.log('\nHouve um erro ao salvar a contagem! Erro: ', erro.sqlMessage);
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+}
+
+// Novo controlador para obter a contagem dos beatboxers
+function getBeatboxerCount(req, res) {
+    usuarioModel.getBeatboxerCount()
+        .then(
+            (resultado) => {
+                let counts = { Napom: 0, Codfish: 0, Dlow: 0, Helium: 0 };
+                resultado.forEach(row => {
+                    counts[row.fkQuiz] = row.count;
+                });
+                res.json(counts);
+            }
+        ).catch(
+            (erro) => {
+                console.log(erro);
+                console.log('\nHouve um erro ao obter a contagem! Erro: ', erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
+
+
 
 module.exports = {
     autenticar,
-    cadastrar
+    cadastrar,
+    saveBeatboxerCount,
+    getBeatboxerCount
 }

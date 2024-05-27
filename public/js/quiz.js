@@ -1,4 +1,4 @@
-// Objeto para armazenar as respostas do usuário
+/* // Objeto para armazenar as respostas do usuário
 const userAnswers = {};
 
 // Mapeamento das respostas para os beatboxers
@@ -132,9 +132,17 @@ function initializeChart() {
 
 // Função para buscar os dados do gráfico da API
 function fetchChartData() {
-    fetch('/api/beatboxer-count')
+    fetch('/usuarios/beatboxer-count')
         .then(response => response.json())
-        .then(data => initializeChart(data))
+        .then(data => {
+            const chartData = [
+                data.Napom,
+                data.Codfish,
+                data.Dlow,
+                data.Helium
+            ];
+            updateChartData(chartData);
+        })
         .catch(error => console.error('Erro ao buscar dados do gráfico:', error));
 }
 
@@ -153,7 +161,22 @@ function showQuiz() {
     quizQuestions.style.display = 'block';
 }
 
+function saveResultToServer(beatboxer, userId) {
+    fetch('/usuarios/save-beatboxer-count', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ beatboxer: beatboxer, userId: userId })
+    })
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error('Erro ao salvar dados no servidor:', error));
+}
+
 // Inicializa o gráfico ao carregar a página
 window.onload = function() {
     initializeChart();
+    fetchChartData();
 };
+ */
