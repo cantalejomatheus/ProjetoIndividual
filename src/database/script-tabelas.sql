@@ -11,6 +11,7 @@ show tables;
 select * from usuario;
 desc usuario;
 
+
 select * from quizResultado;
 desc quizResultado;
 
@@ -20,6 +21,7 @@ desc beatboxer;
 -- drop tabelas
 drop table usuario;
 drop table quizResultado;
+drop database beatbox;
 
 CREATE DATABASE beatbox;
 
@@ -30,19 +32,19 @@ CREATE TABLE beatboxer (
     nome VARCHAR(45) NOT NULL
 );
 
-CREATE TABLE quizResultado (
-    idQuiz INT PRIMARY KEY AUTO_INCREMENT,
-    fkBeatboxer INT,
-    FOREIGN KEY (fkBeatboxer) REFERENCES beatboxer(idBeatboxer)
-);
-
-CREATE TABLE usuario (
-    id INT PRIMARY KEY AUTO_INCREMENT,
+CREATE TABLE usuario ( 
+    idUsuario INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(50) NOT NULL,
     email VARCHAR(50) NOT NULL,
-    senha VARCHAR(50) NOT NULL,
-    fkQuiz INT NOT NULL,
-    FOREIGN KEY (fkQuiz) REFERENCES quizResultado(idQuiz)
+    senha VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE quizResultado ( 
+    idQuiz INT PRIMARY KEY AUTO_INCREMENT,
+    fkBeatboxer INT,
+    fkUsuario INT,
+    FOREIGN KEY (fkBeatboxer) REFERENCES beatboxer(idBeatboxer),
+    FOREIGN KEY (fkUsuario) REFERENCES usuario(idUsuario)
 );
 
 INSERT INTO beatboxer (nome) VALUES 
@@ -51,16 +53,23 @@ INSERT INTO beatboxer (nome) VALUES
 ('Dlow'),
 ('Napom');
 
-INSERT INTO quizResultado (fkBeatboxer) VALUES 
-(1), (2), (3), (4);
+
 
 
 -- selects
-/* select count(fkQuiz) as contador from usuario group by fkQuiz;
+/* SELECT fkUsuario, COUNT(idQuiz) AS contador
+FROM quizResultado
+GROUP BY fkUsuario;
 
-select count(nome) as nome from usuario;
 
-select * from usuario join quizResultado on fkQuiz = idQuiz join beatboxer on fkBeatboxer = idBeatboxer; */
+SELECT COUNT(nome) AS totalUsuarios FROM usuario;
+
+
+SELECT u.*, qr.*, b.*
+FROM usuario u
+JOIN quizResultado qr ON u.idUsuario = qr.fkUsuario
+JOIN beatboxer b ON qr.fkBeatboxer = b.idBeatboxer;
+ */
 
 SELECT b.nome, COUNT(q.idQuiz) AS contador
 FROM quizResultado q

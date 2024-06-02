@@ -18,11 +18,12 @@ function autenticar(req, res) {
 
                     if (resultadoAutenticar.length == 1) {
                         console.log(resultadoAutenticar);
+                        console.log("ESTOU NO USUARIO CONTROLLER")
                         res.json({
                                 nome: resultadoAutenticar[0].nome,
                                 email: resultadoAutenticar[0].email,
                                 senha: resultadoAutenticar[0].senha,
-                                id: resultadoAutenticar[0].id
+                                idUsuario: resultadoAutenticar[0].idUsuario
                         })
                     } else if (resultadoAutenticar.length == 0) {
                         res.status(403).send("Email e/ou senha inválido(s)");
@@ -71,7 +72,7 @@ function cadastrar(req, res){
     }
 }
 
-// Novo controlador para salvar a contagem dos beatboxers
+/* // Novo controlador para salvar a contagem dos beatboxers
 function saveBeatboxerCount(req, res) {
     var beatboxer = req.body.beatboxer;
     var userId = req.body.userId;
@@ -112,6 +113,51 @@ function getBeatboxerCount(req, res) {
                 res.status(500).json(erro.sqlMessage);
             }
         );
+} */
+
+function buscarUltimasContagens(req, res) {
+    usuarioModel.buscarUltimasContagens().then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!");
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar as últimas contagens.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
+function buscarContagemTempoReal(req, res) {
+    usuarioModel.buscarContagemTempoReal().then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!");
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar a contagem em tempo real.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
+function salvarResultado(req, res) {
+    var idUsuario = req.body.idUsuario;
+    var fkBeatboxer = req.body.fkBeatboxer;
+
+    console.log('ID do Usuário:', idUsuario);
+    console.log('ID do Beatboxer:', fkBeatboxer);
+
+    usuarioModel.salvarResultadoQuiz(idUsuario, fkBeatboxer)
+        .then(function(resultado) {
+            res.json(resultado);
+        })
+        .catch(function(erro) {
+            console.log("Houve um erro ao salvar o resultado do quiz: ", erro);
+            res.status(500).json(erro.sqlMessage);
+        });
 }
 
 
@@ -120,6 +166,9 @@ function getBeatboxerCount(req, res) {
 module.exports = {
     autenticar,
     cadastrar,
-    saveBeatboxerCount,
-    getBeatboxerCount
+    buscarUltimasContagens,
+    buscarContagemTempoReal,
+    salvarResultado
+/*     saveBeatboxerCount,
+    getBeatboxerCount */
 }

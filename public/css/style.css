@@ -497,7 +497,7 @@ nav ul li a:hover { /*muda quando o cursor do mouse é colocado em cima*/
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 25vh;
+    height: 30vh;
 }
 
 .footer .footer-container{

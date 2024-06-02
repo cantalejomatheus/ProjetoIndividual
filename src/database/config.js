@@ -9,12 +9,6 @@ var mySqlConfig = {
     port: process.env.DB_PORT
 };
 
-/* const mySqlConfig = {
-    host: "localhost",
-    database: "beatbox",
-    user: "aluno",
-    password: "sptech"
-}; */
 
 function executar(instrucao) {
 

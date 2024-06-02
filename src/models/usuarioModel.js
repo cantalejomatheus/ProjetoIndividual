@@ -4,7 +4,7 @@ const { route } = require("../routes/usuarios");
 function autenticar(email, senha) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar(): ", email, senha)
     var instrucaoSql = `
-        SELECT * FROM usuario WHERE email = '${email}' AND senha = '${senha}';
+        SELECT idUsuario, nome, email, senha FROM usuario WHERE email = '${email}' AND senha = '${senha}';
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
@@ -13,7 +13,7 @@ function autenticar(email, senha) {
 // Coloque os mesmos parâmetros aqui. Vá para a var instrucaoSql
 function cadastrar(nome, email, senha) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nome, email, senha);
-    
+
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
     var instrucaoSql = `
@@ -23,7 +23,7 @@ function cadastrar(nome, email, senha) {
     return database.executar(instrucaoSql);
 }
 
-function saveBeatboxerCount(userId, beatboxer) {
+/* function saveBeatboxerCount(userId, beatboxer) {
     console.log("Salvando beatboxer:", userId, beatboxer);
 
     // Primeiro, selecione o ID do beatboxer com base no nome
@@ -60,12 +60,52 @@ function getBeatboxerCount() {
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
+} */
+
+// Função para salvar o resultado do quiz no banco de dados
+function salvarResultadoQuiz(idUsuario, fkBeatboxer) {
+    console.log("ACESSEI O USUARIO MODEL \n function salvarResultadoQuiz()");
+    var instrucaoSql = `
+        INSERT INTO quizResultado (fkUsuario, fkBeatboxer)
+        VALUES (${idUsuario}, ${fkBeatboxer});
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
 }
+
+function buscarUltimasContagens() {
+    console.log("ACESSEI O USUARIO MODEL \n function buscarUltimasContagens()");
+    var instrucaoSql = `
+    SELECT beatboxer.nome, COUNT(quizResultado.idQuiz) AS count 
+    FROM quizResultado
+    JOIN beatboxer ON quizResultado.fkBeatboxer = beatboxer.idBeatboxer
+    GROUP BY beatboxer.nome;
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+function buscarContagemTempoReal() {
+    console.log("ACESSEI O USUARIO MODEL \n function buscarContagemTempoReal()");
+    var instrucaoSql = `
+        SELECT beatboxer.nome, COUNT(quizResultado.idQuiz) AS count
+        FROM quizResultado
+        JOIN beatboxer ON quizResultado.fkBeatboxer = beatboxer.idBeatboxer
+        GROUP BY beatboxer.nome;
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+
 
 
 module.exports = {
     autenticar,
     cadastrar,
-    saveBeatboxerCount,
-    getBeatboxerCount
-};
+    buscarUltimasContagens,
+    buscarContagemTempoReal,
+    salvarResultadoQuiz
+    /*     saveBeatboxerCount,
+        getBeatboxerCount */
+}; 

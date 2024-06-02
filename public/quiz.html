@@ -3,15 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Quiz BeatBoxLife</title>
     <link rel="stylesheet" href="./css/quiz.css">
     <script src="./js/quiz.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-    
 </head>
 <body>
-    
     <div class="header" id="home">
         <nav>
             <img class="logo" src="img/logo-gbb.png"></img>
@@ -22,45 +19,39 @@
             </ul>
         </nav>
     </div>
-
-
     <div class="quiz-container">
         <h2>Você deseja conhecer mais o mundo do BeatBox?</h2>
-        <button id="start-quiz-btn" onclick="showQuiz()">Começar Quiz</button>
-        <div class="quiz-questions">
-            <!-- Pergunta 1 -->
+        <button id="quiz-button" onclick="toggleQuiz()">Começar Quiz</button>
+        <div class="quiz-questions" style="display: none;">
+            <!-- Perguntas do quiz (mantidas como estão) -->
             <div class="question">
                 <h3>Pergunta 1:</h3>
                 <p>Com qual som você se identifica mais?</p>
-                <!-- Opções de resposta -->
                 <ul class="quiz-options">
-                    <li class="quiz-option" onclick="selectOption(this, 'pergunta2')">KickDrum</li> <!--napom-->
-                    <li class="quiz-option" onclick="selectOption(this, 'pergunta2')">Hi-Hat</li> <!--dlow-->
-                    <li class="quiz-option" onclick="selectOption(this, 'pergunta2')">Snare</li> <!--helium-->
-                    <li class="quiz-option" onclick="selectOption(this, 'pergunta2')">Bass</li> <!--codfish-->
+                    <li class="quiz-option" onclick="selecionarOpcao(this, 'pergunta2')">KickDrum</li>
+                    <li class="quiz-option" onclick="selecionarOpcao(this, 'pergunta2')">Hi-Hat</li>
+                    <li class="quiz-option" onclick="selecionarOpcao(this, 'pergunta2')">Snare</li>
+                    <li class="quiz-option" onclick="selecionarOpcao(this, 'pergunta2')">Bass</li>
                 </ul>
             </div>
-            <!-- Pergunta 2 -->
             <div class="question hidden" id="pergunta2">
                 <h3>Pergunta 2:</h3>
                 <p>Na sua opinião, o que você considera uma boa música?</p>
-                <!-- Opções de resposta -->
                 <ul class="quiz-options">
-                    <li class="quiz-option" onclick="selectOption(this, 'pergunta3')">Quando tem uma boa melodia</li> <!--codfish-->
-                    <li class="quiz-option" onclick="selectOption(this, 'pergunta3')">Quando tem uma boa estrutura de sons</li> <!--helium-->
-                    <li class="quiz-option" onclick="selectOption(this, 'pergunta3')">Quando tem muito drops</li> <!--dlow-->
-                    <li class="quiz-option" onclick="selectOption(this, 'pergunta3')">Quando tem um estilo totalmente diferente do convencional</li> <!--napom-->
+                    <li class="quiz-option" onclick="selecionarOpcao(this, 'pergunta3')">Quando tem uma boa melodia</li>
+                    <li class="quiz-option" onclick="selecionarOpcao(this, 'pergunta3')">Quando tem uma boa estrutura de sons</li>
+                    <li class="quiz-option" onclick="selecionarOpcao(this, 'pergunta3')">Quando tem muito drops</li>
+                    <li class="quiz-option" onclick="selecionarOpcao(this, 'pergunta3')">Quando tem um estilo totalmente diferente do convencional</li>
                 </ul>
             </div>
-            <!-- Pergunta 3 -->
             <div class="question hidden" id="pergunta3">
-                <h3>Pergunta 3</h3>
+                <h3>Pergunta 3:</h3>
                 <p>Você se considera uma pessoa mais...</p>
                 <ul class="quiz-options">
-                    <li class="quiz-option" onclick="selectOption(this, 'resultado')">Calmo</li> <!--codfish-->
-                    <li class="quiz-option" onclick="selectOption(this, 'resultado')">Agressivo</li> <!--helium-->
-                    <li class="quiz-option" onclick="selectOption(this, 'resultado')">Paciente</li> <!--dlow-->
-                    <li class="quiz-option" onclick="selectOption(this, 'resultado')">Observador</li> <!--napom-->
+                    <li class="quiz-option" onclick="selecionarOpcao(this, 'resultado')">Calmo</li>
+                    <li class="quiz-option" onclick="selecionarOpcao(this, 'resultado')">Agressivo</li>
+                    <li class="quiz-option" onclick="selecionarOpcao(this, 'resultado')">Paciente</li>
+                    <li class="quiz-option" onclick="selecionarOpcao(this, 'resultado')">Observador</li>
                 </ul>
             </div>
             <div class="question hidden" id="resultado">
@@ -77,20 +68,14 @@
             </div>  
         </div>
     </div>
-    
-
     <div class="footer">
         <div class="footer-container">
             <div class="footer-boxes">
                 <div class="footer-box">
                     <h1>Redes Sociais</h1>
-
-                    <p><i class="fa-brands fa-instagram"></i><a target="_blank"
-                            href="https://www.instagram.com/matheuszxv/">Instagram</a></p>
-                    <p><i class="fa-brands fa-linkedin"></i><a target="_blank"
-                            href="https://www.linkedin.com/in/cantalejomatheus/">LinkedIn</a></p>
-                    <p><i class="fa-brands fa-github"></i><a target="_blank"
-                            href="https://github.com/cantalejomatheus">GitHub</a></p>
+                    <p><i class="fa-brands fa-instagram"></i><a target="_blank" href="https://www.instagram.com/matheuszxv/">Instagram</a></p>
+                    <p><i class="fa-brands fa-linkedin"></i><a target="_blank" href="https://www.linkedin.com/in/cantalejomatheus/">LinkedIn</a></p>
+                    <p><i class="fa-brands fa-github"></i><a target="_blank" href="https://github.com/cantalejomatheus">GitHub</a></p>
                 </div>
                 <div class="footer-box">
                     <img class="bbl" src="img/gbb-logo-branco-bg.png" alt="logo gbb">
@@ -103,136 +88,223 @@
         </div>
         <p>&copy; BeatBoxLife 2024</p>
     </div>
-
 </body>
 </html>
 <script>
-    const userAnswers = {};
-    const answerToBeatboxer = {
-        "KickDrum": "Napom",
-        "Hi-Hat": "Dlow",
-        "Snare": "Helium",
-        "Bass": "Codfish",
-        "Quando tem uma boa melodia": "Codfish",
-        "Quando tem uma boa estrutura de sons": "Helium",
-        "Quando tem muito drops": "Dlow",
-        "Quando tem um estilo totalmente diferente do convencional": "Napom",
-        "Calmo": "Codfish",
-        "Agressivo": "Helium",
-        "Paciente": "Dlow",
-        "Observador": "Napom"
-    };
-    const beatboxerToVideo = {
-        "Napom": "https://www.youtube.com/embed/hddAPNIKb0Q",
-        "Codfish": "https://www.youtube.com/embed/vZjjgw8Nc6Q",
-        "Dlow": "https://www.youtube.com/embed/0I_FIPcl0dA",
-        "Helium": "https://www.youtube.com/embed/Z-YzcRN3yZs"
-    };
-    const beatboxerCount = {
-        "Napom": 0,
-        "Codfish": 0,
-        "Dlow": 0,
-        "Helium": 0
-    };
-    let chart;
 
-    function selectOption(element, nextQuestionId) {
-        const questionText = element.parentElement.previousElementSibling.innerText;
-        const answerText = element.innerText;
-        userAnswers[questionText] = answerText;
-        element.parentElement.parentElement.classList.add('hidden');
-        document.getElementById(nextQuestionId).classList.remove('hidden');
-        if (nextQuestionId === 'resultado') {
-            showResult();
+var id = sessionStorage.ID_USUARIO;
+
+let respostasUsuario = {};
+const respostasAtreladasAoBeatboxer = {
+    "KickDrum": "Napom",
+    "Hi-Hat": "Dlow",
+    "Snare": "Helium",
+    "Bass": "Codfish",
+    "Quando tem uma boa melodia": "Codfish",
+    "Quando tem uma boa estrutura de sons": "Helium",
+    "Quando tem muito drops": "Dlow",
+    "Quando tem um estilo totalmente diferente do convencional": "Napom",
+    "Calmo": "Codfish",
+    "Agressivo": "Helium",
+    "Paciente": "Dlow",
+    "Observador": "Napom"
+};
+const videoBeatboxer = {
+    "Napom": "https://www.youtube.com/embed/hddAPNIKb0Q",
+    "Codfish": "https://www.youtube.com/embed/vZjjgw8Nc6Q",
+    "Dlow": "https://www.youtube.com/embed/0I_FIPcl0dA",
+    "Helium": "https://www.youtube.com/embed/Z-YzcRN3yZs"
+};
+const contadorBeatboxer = {
+    "Napom": 0,
+    "Codfish": 0,
+    "Dlow": 0,
+    "Helium": 0
+};
+let chart;
+
+/*element = o elemento [DOM] clicado pelo usuário.(a parte do quiz q o usuário está)*/
+function selecionarOpcao(element, idProximaPergunta) { 
+    const perguntas = element.parentElement.previousElementSibling.innerText;
+    const respostas = element.innerText; /*Extrai a pergunta e a resposta do elemento DOM.*/
+    respostasUsuario[perguntas] = respostas; /*Armazena a resposta no objeto respostasUsuario.*/
+    element.parentElement.parentElement.classList.add('hidden'); /*Esconde a pergunta atual e mostra a próxima.*/
+    document.getElementById(idProximaPergunta).classList.remove('hidden');
+    /*Se a próxima pergunta for a de resultado, chama a função mostrarResultado.*/
+    if (idProximaPergunta === 'resultado') { 
+        mostrarResultado();
+    }
+}
+
+function mostrarResultado() {
+    console.log("Mostrar Resultado chamado");
+    const textoResultado = document.getElementById('result-text');
+    /*Inicializa contadores para cada beatboxer.*/
+    const beatboxers = {"Napom": 0, "Codfish": 0, "Dlow": 0, "Helium": 0};
+    /*Conta quantas vezes cada beatboxer foi escolhido baseado nas respostas do usuário.*/
+    for (const key in respostasUsuario) {
+        const resposta = respostasUsuario[key];
+        const beatboxer = respostasAtreladasAoBeatboxer[resposta];
+        if (beatboxer) {
+            beatboxers[beatboxer]++;
         }
     }
+    let beatboxerRecomendado = '';
+    let maxCount = 0;
+    /*Determina o beatboxer mais recomendado.*/
+    for (const beatboxer in beatboxers) {
+        if (beatboxers[beatboxer] > maxCount) {
+            maxCount = beatboxers[beatboxer];
+            beatboxerRecomendado = beatboxer;
+        }
+    }
+    /*Atualiza a contagem global de recomendações.*/
+    contadorBeatboxer[beatboxerRecomendado]++;
+    /*Exibe o resultado e atualiza o vídeo do YouTube.*/
+    textoResultado.innerText = `Você se parece mais com: ${beatboxerRecomendado}`;
+    const youtubeIframe = document.getElementById('youtube-iframe');
+    youtubeIframe.src = videoBeatboxer[beatboxerRecomendado];
 
-    function showResult() {
-        const resultElement = document.getElementById('result-text');
-        const beatboxers = {"Napom": 0, "Codfish": 0, "Dlow": 0, "Helium": 0};
-        for (const key in userAnswers) {
-            const answer = userAnswers[key];
-            const beatboxer = answerToBeatboxer[answer];
-            if (beatboxer) {
-                beatboxers[beatboxer]++;
+    let idDoBeatboxer = 0;
+    if (beatboxerRecomendado == 'Napom') {
+        idDoBeatboxer = 4;
+    } else if (beatboxerRecomendado == 'Dlow') {
+        idDoBeatboxer = 3;
+    } else if (beatboxerRecomendado == 'Helium') {
+        idDoBeatboxer = 2;
+    } else if (beatboxerRecomendado == 'Codfish') {
+        idDoBeatboxer = 1;
+    }
+
+    // Enviar resultado para o backend
+    fetch('/usuarios/salvar-resultado', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ idUsuario: id, fkBeatboxer: idDoBeatboxer })
+    }).then(response => {
+        if (response.ok) {
+            console.log('Resultado salvo com sucesso');
+            obterDadosGrafico(); // Atualiza o gráfico após salvar o resultado (chamando a function)
+        } else {
+            console.error('Erro ao salvar o resultado');
+        }
+    }).catch(error => {
+        console.error('Erro ao salvar o resultado:', error);
+    });
+    toggleButton();
+}
+
+function obterDadosGrafico() {
+    console.log("Obter dados do gráfico chamado");
+    //Faz uma solicitação para obter as últimas contagens de recomendações.
+    fetch('/usuarios/ultimas-contagens')
+    //Processa a resposta e formata os dados.
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Erro na resposta da API: ${response.statusText}`);
             }
-        }
-        let recommendedBeatboxer = '';
-        let maxCount = 0;
-        for (const beatboxer in beatboxers) {
-            if (beatboxers[beatboxer] > maxCount) {
-                maxCount = beatboxers[beatboxer];
-                recommendedBeatboxer = beatboxer;
-            }
-        }
-        beatboxerCount[recommendedBeatboxer]++;
-        resultElement.innerText = `Você se parece mais com: ${recommendedBeatboxer}`;
-        const youtubeIframe = document.getElementById('youtube-iframe');
-        youtubeIframe.src = beatboxerToVideo[recommendedBeatboxer];
-        updateChart();
-    }
-
-    function initializeChart(data) {
-        const ctx = document.getElementById('resultChart').getContext('2d');
-        const chartData = {
-            labels: ['Napom', 'Codfish', 'Dlow', 'Helium'],
-            datasets: [{
-                data: data,
-                backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0']
-            }]
-        };
-        const options = {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-                legend: {
-                    display: true,
-                    position: 'top'
-                }
-            }
-        };
-        if (chart) {
-            chart.destroy();
-        }
-        chart = new Chart(ctx, {
-            type: 'doughnut',
-            data: chartData,
-            options: options
-        });
-    }
-
-    function fetchChartData() {
-        fetch('/usuarios/beatboxer-count')
-            .then(response => response.json())
-            .then(data => {
-                const chartData = [data.Napom, data.Codfish, data.Dlow, data.Helium];
-                initializeChart(chartData);
-            })
-            .catch(error => console.error('Erro ao buscar dados do gráfico:', error));
-    }
-
-    function updateChart() {
-        chart.data.datasets[0].data = [beatboxerCount.Napom, beatboxerCount.Codfish, beatboxerCount.Dlow, beatboxerCount.Helium];
-        chart.update();
-    }
-
-    function showQuiz() {
-        var quizQuestions = document.querySelector('.quiz-questions');
-        quizQuestions.style.display = 'block';
-    }
-
-    function saveResultToServer(beatboxer, userId) {
-        fetch('/usuarios/save-beatboxer-count', {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({ beatboxer: beatboxer, userId: userId })
+            return response.json();
         })
-        .then(response => response.json())
-        .then(data => console.log(data))
-        .catch(error => console.error('Erro ao salvar dados no servidor:', error));
-    }
+        //Chama inicializarGrafico com os dados obtidos.
+        .then(data => {
+            console.log("Dados do gráfico recebidos:", data);
+            if (data && Array.isArray(data)) {
+                const chartData = data.map(item => item.count || 0);
+                console.log("ChartData formatado:", chartData);
+                inicializarGrafico(chartData);
+            } else {
+                console.error('Dados do gráfico são nulos, indefinidos ou não estão em um formato esperado');
+            }
+        })
+        .catch(error => {
+            console.error('Erro ao buscar dados do gráfico:', error);
+        });
+}
 
-    window.onload = function() {
-        fetchChartData();
+//data: Um array com os dados das contagens para cada beatboxer.
+function inicializarGrafico(data) {
+    console.log("Inicializar gráfico com dados:", data);
+    //Configura o contexto do gráfico.
+    const ctx = document.getElementById('resultChart').getContext('2d');
+    const chartData = {
+        labels: ['Codfish', 'Helium', 'Dlow', 'Napom'],
+        datasets: [{
+            data: data,
+            backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0']
+        }]
     };
+    //Define os dados e opções do gráfico.
+    const options = {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            legend: {
+                display: true,
+                position: 'top'
+            }
+        }
+    };
+    //Destrói o gráfico existente (se houver).
+    if (chart) {
+        chart.destroy();
+    }
+    //Inicializa um novo gráfico do tipo "doughnut" com os dados fornecidos.
+    chart = new Chart(ctx, {
+        type: 'doughnut',
+        data: chartData,
+        options: options
+    });
+}
+
+
+//Quando a página carrega, chama obterDadosGrafico para inicializar o gráfico com os dados mais recentes.
+window.onload = function() {
+    obterDadosGrafico();
+};
+
+function toggleQuiz() {
+    const button = document.getElementById('quiz-button');
+    const quizQuestions = document.querySelector('.quiz-questions');
+    //Alterna a exibição das perguntas do quiz.
+    if (quizQuestions.style.display === 'none') {
+        quizQuestions.style.display = 'block';
+        //Muda o texto do botão para "Encerrar Quiz" ou "Começar Quiz".
+        button.innerText = 'Encerrar Quiz';
+    } else {
+        resetQuiz();
+    }
+}
+
+//Atualiza o texto e a ação do botão para encerrar o quiz e reiniciar.
+function toggleButton() {
+    const button = document.getElementById('quiz-button');
+    button.innerText = 'Encerrar Quiz';
+    button.onclick = resetQuiz;
+}
+
+function resetQuiz() {
+    const quizQuestions = document.querySelector('.quiz-questions');
+    const questions = document.querySelectorAll('.question');
+    //Esconde todas as perguntas e mostra a primeira.
+    questions.forEach(question => question.classList.add('hidden'));
+    document.querySelector('.question').classList.remove('hidden');
+    quizQuestions.style.display = 'none';
+    const button = document.getElementById('quiz-button');
+    //Reseta o estado do quiz.
+    button.innerText = 'Começar Quiz';
+    button.onclick = toggleQuiz;
+    respostasUsuario = {};
+    chart.destroy();
+    //Atualiza o gráfico com novos dados.
+    obterDadosGrafico();
+}
+
+
+
+
+/*     window.onload = function() {
+    obterDadosGrafico();
+    }; */
 </script>

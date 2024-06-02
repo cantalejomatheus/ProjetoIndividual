@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,68 +9,57 @@
     <link rel="icon" href="img/logo-gbb-icone.ico">
     <link rel="stylesheet" href="css/login-style.css">
 
-    <!--importando poppins-->
+    <!-- Importando poppins -->
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap">
 </head>
+
 <body>
     <div class="header" id="home">
+        
         <nav>
             <img class="logo" src="img/logo-gbb.png"></img>
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="index.html #beatbox">Beatbox</a></li>
-                <li><a href="index.htm #gbb">GBB</a></li>
-                <li><a href="index.html #jornada">Jornada</a></li>
+                <li><a href="index.html#beatbox">Beatbox</a></li>
+                <li><a href="index.html#gbb">GBB</a></li>
+                <li><a href="index.html#jornada">Jornada</a></li>
                 <li><a href="login.html">Login</a></li>
                 <li><a href="cadastro.html">Cadastro</a></li>
             </ul>
         </nav>
     </div>
 
-
-
-
-
-
-
-
-
-
-
     <div class="login-container">
         <div class="content">
             <img src="img/gbb2-napom.jpg" alt="Imagem de fundo">
             <div class="form-container">
                 <h2>Login</h2>
-                <form>
-                    <div class="form-group">
-                        <label for="email">Email:</label>
-                        <input type="email" name="email" id="email_input" placeholder="email@sptech.school" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="password">Senha:</label>
-                        <input type="password" name="password" id="senha_input" placeholder="******" required>
-                    </div>
-                    <button type="submit" onclick="entrar()">Entrar</button>
-                </form>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" name="email" id="email_input" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Senha:</label>
+                    <input type="password" name="password" id="senha_input" required>
+                </div>
+                <span id="span_erro_cadastro" style="display: none; color: red;">* Preencha todos os campos corretamente para prosseguir.</span>
+                <button type="submit" onclick="entrar()">Entrar</button>
             </div>
         </div>
     </div>
-
-
-
-
 
     <div class="footer">
         <div class="footer-container">
             <div class="footer-boxes">
                 <div class="footer-box">
                     <h1>Redes Sociais</h1>
-                    
-                    <p><i class="fa-brands fa-instagram"></i><a target="_blank" href="https://www.instagram.com/matheuszxv/">Instagram</a></p>
-                    <p><i class="fa-brands fa-linkedin"></i><a target="_blank" href="https://www.linkedin.com/in/cantalejomatheus/">LinkedIn</a></p>
-                    <p><i class="fa-brands fa-github"></i><a target="_blank" href="https://github.com/cantalejomatheus">GitHub</a></p>
+                    <p><i class="fa-brands fa-instagram"></i><a target="_blank"
+                            href="https://www.instagram.com/matheuszxv/">Instagram</a></p>
+                    <p><i class="fa-brands fa-linkedin"></i><a target="_blank"
+                            href="https://www.linkedin.com/in/cantalejomatheus/">LinkedIn</a></p>
+                    <p><i class="fa-brands fa-github"></i><a target="_blank"
+                            href="https://github.com/cantalejomatheus">GitHub</a></p>
                 </div>
                 <div class="footer-box">
                     <img class="riot" src="img/gbb-logo-branco-bg.png" alt="logo gbb">
@@ -80,57 +70,65 @@
                 </div>
             </div>
         </div>
-         <p>&copy; BeatBoxLife 2024</p>
+        <p>&copy; BeatBoxLife 2024</p>
     </div>
-</body>
-</html>
 
-<script>
+    <script>
+        function entrar() {
+            var emailVar = email_input.value
+            var senhaVar = senha_input.value
 
-    async function entrar() {
-        var emailVar = email_input.value
-        var senhaVar = senha_input.value
-
-        if (emailVar == "" || senhaVar == "") {
-            alert('Campos não preenchidos.')
-            return;
-        }
-
-        await fetch("/usuarios/autenticar", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                emailServer: emailVar,
-                senhaServer: senhaVar
-            })
-        }).then((resposta) => {
-            console.log("ESTOU NO THEN DO login()!")
-            if (resposta.ok) {
-                console.log(resposta);
-                console.log("logou");
-                window.location = "quiz.html"
-                resposta.json().then(json=>{
-                    console.log(json);
-                    console.log(JSON.stringify(json));
-                    sessionStorage.ID_USUARIO = json.id;
-                    sessionStorage.NOME_USUARIO = json.nome;
-                    sessionStorage.EMAIL_USUARIO = json.email;
-                })
-                
+            if (emailVar == "" || senhaVar == "") {
+                alert('Campos não preenchidos.')
+                document.getElementById("span_erro_cadastro").innerText = "* Preencha todos os campos corretamente para prosseguir.";
+                document.getElementById("span_erro_cadastro").style.display = "block";
+                return;
+            } else if (!emailVar.includes("@")) {
+                document.getElementById("span_erro_cadastro").innerText = "Coloque o arroba no email";
+                document.getElementById("span_erro_cadastro").style.display = "block";
+                return;
             } else {
+                fetch("/usuarios/autenticar", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        emailServer: emailVar,
+                        senhaServer: senhaVar
+                    })
+                }).then((resposta) => {
+                    console.log("ESTOU NO THEN DO login()!")
+                    if (resposta.ok) {
+                        console.log(resposta);
+                        console.log("logou");
+                        window.location = "quiz.html"
+                        resposta.json().then(json => {
+                            console.log(json);
+                            console.log(JSON.stringify(json));
+                            sessionStorage.ID_USUARIO = json.idUsuario;
+                            sessionStorage.NOME_USUARIO = json.nome;
+                            sessionStorage.EMAIL_USUARIO = json.email;
+                        })
 
-                console.log("Houve um erro ao tentar realizar o login!");
+                    } else {
 
-                resposta.text().then(texto => {
-                    console.error(texto);
-                });
+                        console.log("Houve um erro ao tentar realizar o login!");
+                        alert("Houve um erro ao tentar realizar o login!")
+
+                        resposta.text().then(texto => {
+                            console.error(texto);
+                            document.getElementById("span_erro_cadastro").innerText = "Email e/ou senha inválidos!";
+                            document.getElementById("span_erro_cadastro").style.display = "block";
+                        });
+                    }
+                }).catch((erro) => {
+                    console.log(erro);
+
+                })
             }
-        }).catch((erro) => {
-            console.log(erro);
+        }
+    </script>
+</body>
 
-        })
-    }
-
-</script>
+</html>
