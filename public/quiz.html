@@ -198,30 +198,50 @@ function mostrarResultado() {
 
 function obterDadosGrafico() {
     console.log("Obter dados do gráfico chamado");
-    //Faz uma solicitação para obter as últimas contagens de recomendações.
+    // Faz uma solicitação para obter as últimas contagens de recomendações.
     fetch('/usuarios/ultimas-contagens')
-    //Processa a resposta e formata os dados.
+        // Processa a resposta e formata os dados.
         .then(response => {
             if (!response.ok) {
                 throw new Error(`Erro na resposta da API: ${response.statusText}`);
             }
             return response.json();
         })
-        //Chama inicializarGrafico com os dados obtidos.
+        // Chama inicializarGrafico com os dados obtidos.
         .then(data => {
             console.log("Dados do gráfico recebidos:", data);
             if (data && Array.isArray(data)) {
-                const chartData = data.map(item => item.count || 0);
+                // Formatar os dados para garantir que temos os valores em ordem correta.
+                const chartData = [0, 0, 0, 0];
+                data.forEach(item => {
+                    switch(item.nome) {
+                        case 'Codfish':
+                            chartData[0] = item.count || 0;
+                            break;
+                        case 'Helium':
+                            chartData[1] = item.count || 0;
+                            break;
+                        case 'Dlow':
+                            chartData[2] = item.count || 0;
+                            break;
+                        case 'Napom':
+                            chartData[3] = item.count || 0;
+                            break;
+                    }
+                });
                 console.log("ChartData formatado:", chartData);
                 inicializarGrafico(chartData);
             } else {
                 console.error('Dados do gráfico são nulos, indefinidos ou não estão em um formato esperado');
+                inicializarGrafico([0, 0, 0, 0]); // Inicializar gráfico com zeros se não houver dados válidos
             }
         })
         .catch(error => {
             console.error('Erro ao buscar dados do gráfico:', error);
+            inicializarGrafico([0, 0, 0, 0]); // Inicializar gráfico com zeros em caso de erro
         });
 }
+
 
 //data: Um array com os dados das contagens para cada beatboxer.
 function inicializarGrafico(data) {

@@ -75,51 +75,85 @@
 
     <script>
         function cadastrar(event) {
-            event.preventDefault();
+    event.preventDefault();
 
-            var nomeVar = document.getElementById('name_input').value;
-            var emailVar = document.getElementById('email_input').value;
-            var senhaVar = document.getElementById('senha_input').value;
+    var nomeVar = document.getElementById('name_input').value;
+    var emailVar = document.getElementById('email_input').value;
+    var senhaVar = document.getElementById('senha_input').value;
 
-            if (nomeVar === "" || emailVar === "" || senhaVar === "") {
-                document.getElementById("span_erro_cadastro").innerText = "* Preencha todos os campos corretamente para prosseguir.";
-                document.getElementById("span_erro_cadastro").style.display = "block";
-                return;
-            }
+    if (nomeVar === "" || emailVar === "" || senhaVar === "") {
+        document.getElementById("span_erro_cadastro").innerText = "* Preencha todos os campos corretamente para prosseguir.";
+        document.getElementById("span_erro_cadastro").style.display = "block";
+        return;
+    }
 
-            if (!emailVar.includes("@")) {
-                document.getElementById("span_erro_cadastro").innerText = "Coloque o arroba no email";
-                document.getElementById("span_erro_cadastro").style.display = "block";
-                return;
-            }
+    if (!emailVar.includes("@")) {
+        document.getElementById("span_erro_cadastro").innerText = "Coloque o arroba no email";
+        document.getElementById("span_erro_cadastro").style.display = "block";
+        return;
+    }
 
-            fetch("/usuarios/cadastrar", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    nomeServer: nomeVar,
-                    emailServer: emailVar,
-                    senhaServer: senhaVar
-                }),
-            })
-            .then((resposta) => {
-                console.log("Resposta do servidor: ", resposta);
+    // Validando a senha
+    const minimoCaracteres = 8;
+    let temMaiuscula = false;
+    let temMinuscula = false;
+    let temNumero = false;
+    let temCaracterEspecial = false;
+    const caracterEspecial = "!@#$%^&*()_+[]{}|;:',.<>?";
 
-                if (resposta.ok) {
-                    alert('Cadastro realizado com sucesso! Redirecionando para a tela de login...');
-                    window.location.href = "login.html";
-                } else {
-                    throw new Error("Houve um erro ao tentar realizar o cadastro!");
-                }
-            })
-            .catch((erro) => {
-                console.log(`#ERRO: ${erro}`);
-                document.getElementById("span_erro_cadastro").innerText = "Houve um erro ao tentar realizar o cadastro!";
-                document.getElementById("span_erro_cadastro").style.display = "block";
-            });
+    if (senhaVar.length < minimoCaracteres) {
+        document.getElementById("span_erro_cadastro").innerText = "A senha deve ter pelo menos 8 caracteres.";
+        document.getElementById("span_erro_cadastro").style.display = "block";
+        return;
+    }
+
+    for (let i = 0; i < senhaVar.length; i++) {
+        const caracterSenha = senhaVar[i];
+        if (caracterSenha >= 'A' && caracterSenha <= 'Z') {
+            temMaiuscula = true;
+        } else if (caracterSenha >= 'a' && caracterSenha <= 'z') {
+            temMinuscula = true;
+        } else if (caracterSenha >= '0' && caracterSenha <= '9') {
+            temNumero = true;
+        } else if (caracterEspecial.includes(caracterSenha)) {
+            temCaracterEspecial = true;
         }
+    }
+
+    if (!temMaiuscula || !temMinuscula || !temNumero || !temCaracterEspecial) {
+        document.getElementById("span_erro_cadastro").innerText = "A senha deve conter pelo menos uma letra maiúscula, uma letra minúscula, um número e um caractere especial.";
+        document.getElementById("span_erro_cadastro").style.display = "block";
+        return;
+    }
+
+    fetch("/usuarios/cadastrar", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            nomeServer: nomeVar,
+            emailServer: emailVar,
+            senhaServer: senhaVar
+        }),
+    })
+    .then((resposta) => {
+        console.log("Resposta do servidor: ", resposta);
+
+        if (resposta.ok) {
+            alert('Cadastro realizado com sucesso! Redirecionando para a tela de login...');
+            window.location.href = "login.html";
+        } else {
+            throw new Error("Houve um erro ao tentar realizar o cadastro!");
+        }
+    })
+    .catch((erro) => {
+        console.log(`#ERRO: ${erro}`);
+        document.getElementById("span_erro_cadastro").innerText = "Houve um erro ao tentar realizar o cadastro!";
+        document.getElementById("span_erro_cadastro").style.display = "block";
+    });
+}
+
     </script>
 </body>
 </html>
