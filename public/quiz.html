@@ -64,12 +64,13 @@
                     </div>
                     <div class="chart-container">
                         <canvas id="resultChart"></canvas>
+                       
                     </div>
                     <div class="kpi-container">
-                        <p>Total de usuários cadastrados: <span id="numero_quiz">0</span></p>
+                        <p>Total de usuários <br> cadastrados: <br><span id="numero_quiz">0</span></p>
                     </div>
                     <div class="kpi2-container">
-                        <p>Beatboxer mais popular: <span id="beatboxer_popular"></span></p>
+                        <p>Beatboxer mais popular: <br><span id="beatboxer_popular"></span></p>
                     </div>
                 </div>
             </div>  
@@ -250,6 +251,8 @@ function obterDadosGrafico() {
             console.error('Erro ao buscar dados do gráfico:', error);
             inicializarGrafico([0, 0, 0, 0]); // Inicializar gráfico com zeros em caso de erro
         });
+        beatboxerPopular();
+    obterNumeroUsuarios();
 }
 
 
@@ -312,21 +315,9 @@ function toggleButton() {
 }
 
 function resetQuiz() {
-    const quizQuestions = document.querySelector('.quiz-questions');
-    const questions = document.querySelectorAll('.question');
-    //Esconde todas as perguntas e mostra a primeira.
-    questions.forEach(question => question.classList.add('hidden'));
-    document.querySelector('.question').classList.remove('hidden');
-    quizQuestions.style.display = 'none';
-    const button = document.getElementById('quiz-button');
-    //Reseta o estado do quiz.
-    button.innerText = 'Começar Quiz';
-    button.onclick = toggleQuiz;
-    respostasUsuario = {};
-    chart.destroy();
-    //Atualiza o gráfico com novos dados.
-    obterDadosGrafico();
+    window.location.href = 'quiz.html'
 }
+
 
 
 function obterNumeroUsuarios() {
@@ -345,7 +336,7 @@ function beatboxerPopular() {
     fetch('/usuarios/beatboxer-popular')
         .then(response => response.json())
         .then(data => {
-            beatboxer_popular.innerHTML = `Beatboxer mais popular: ${data.nome} com ${data.contador} votos`;
+            beatboxer_popular.innerHTML = `${data.nome} <br> com ${data.contador} votos`;
         })
         .catch(error => {
             console.error("Erro ao obter o beatboxer mais popular:", error);
