@@ -76,3 +76,10 @@ FROM quizResultado q
 JOIN beatboxer b ON q.fkBeatboxer = b.idBeatboxer
 GROUP BY b.nome;
 
+-- pegar beatboxer com maior numero de votos
+SELECT b.nome, COUNT(q.idQuiz) AS contador
+FROM quizResultado q
+JOIN beatboxer b ON q.fkBeatboxer = b.idBeatboxer
+GROUP BY b.nome
+ORDER BY contador DESC
+LIMIT 1;

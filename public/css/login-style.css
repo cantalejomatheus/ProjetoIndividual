@@ -13,18 +13,20 @@ body {
 
 .header {
     width: 100%;
-    padding-bottom: 80px; /*empurra a imagem do container pra baixo*/
 }
 
 nav {
     border-bottom: solid #ff6417 1px;
+    background-color: #fff;
+    
     width: 100%;
     height: 80px;
-    padding: 20px 8%; /*superior-inferior*/ /*direito-esquerdo*/
+    padding: 20px 8%; /*superior-inferior direito-esquerdo*/ 
+    
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #fff;
+    
     z-index: 999;
 }
 
@@ -49,9 +51,12 @@ nav ul li a {
 nav ul li a:hover { /*muda quando o cursor do mouse é colocado em cima*/
     padding: 5px; /*se desloca levemente*/
     border-radius: 30px;
-    background-color: whitesmoke;
     transition: 0.5s; /*na hora de ir pro hover*/
     color: black;
+}
+
+.separador_navbar{
+    color: #ff6417;
 }
 
 .login-container {
@@ -65,10 +70,14 @@ nav ul li a:hover { /*muda quando o cursor do mouse é colocado em cima*/
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 80%; 
+
     background-color: rgba(255, 255, 255, 0.8);
-    border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    
+    width: 80%; 
+    border-radius: 10px;
+    margin-bottom: 5vw;
+    
     overflow: hidden; /* para evitar que a imagem ultrapasse os limites da div */
 }
 

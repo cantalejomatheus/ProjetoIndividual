@@ -160,15 +160,40 @@ function salvarResultado(req, res) {
         });
 }
 
+function numeroUsuarios(req, res) {
+    usuarioModel.numeroUsuarios()
+        .then(function (resultado) {
+            if (resultado.length > 0) {
+                res.status(200).json(resultado[0]);
+            } else {
+                res.status(204).send("Nenhum resultado encontrado!");
+            }
+        }).catch(function (erro) {
+            console.log(erro);
+            console.log("Houve um erro ao buscar o número de usuários: ", erro.sqlMessage);
+            res.status(500).json(erro.sqlMessage);
+        });
+}
 
-
+function beatboxerPopular(req, res) {
+    usuarioModel.beatboxerPopular()
+        .then(function (resultado) {
+            res.json(resultado[0]);
+        }).catch(function (erro) {
+            console.log(erro);
+            console.log("\nHouve um erro ao buscar o beatboxer mais popular! Erro: ", erro.sqlMessage);
+            res.status(500).json(erro.sqlMessage);
+        });
+}
 
 module.exports = {
     autenticar,
     cadastrar,
     buscarUltimasContagens,
     buscarContagemTempoReal,
-    salvarResultado
-/*     saveBeatboxerCount,
-    getBeatboxerCount */
-}
+    salvarResultado,
+    numeroUsuarios,
+    beatboxerPopular
+    /*     saveBeatboxerCount,
+        getBeatboxerCount */
+};

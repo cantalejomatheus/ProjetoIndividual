@@ -97,15 +97,37 @@ function buscarContagemTempoReal() {
     return database.executar(instrucaoSql);
 }
 
+function numeroUsuarios() {
+    console.log("ACESSEI O USUARIO MODEL \n function numeroUsuarios()");
+    var instrucaoSql = `
+        SELECT COUNT(DISTINCT fkUsuario) as numUsuarios FROM quizResultado;
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
 
-
+function beatboxerPopular() {
+    console.log("ACESSEI O USUARIO MODEL \n function beatboxerPopular()");
+    var instrucaoSql = `
+        SELECT b.nome, COUNT(q.idQuiz) AS contador
+        FROM quizResultado q
+        JOIN beatboxer b ON q.fkBeatboxer = b.idBeatboxer
+        GROUP BY b.nome
+        ORDER BY contador DESC
+        LIMIT 1;
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
 
 module.exports = {
     autenticar,
     cadastrar,
     buscarUltimasContagens,
     buscarContagemTempoReal,
-    salvarResultadoQuiz
+    salvarResultadoQuiz,
+    numeroUsuarios,
+    beatboxerPopular
     /*     saveBeatboxerCount,
-        getBeatboxerCount */
-}; 
+    getBeatboxerCount */
+};

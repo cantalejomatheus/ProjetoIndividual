@@ -32,5 +32,15 @@ router.post('/salvar-resultado', function(req, res) {
     usuarioController.salvarResultado(req, res);
 });
 
+router.get("/numero-usuarios", function (req, res) {
+    usuarioController.numeroUsuarios(req, res);
+});
+
+router.get("/beatboxer-popular", function (req, res) {
+    usuarioController.beatboxerPopular(req, res);
+});
+
+
+
 
 module.exports = router;

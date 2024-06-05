@@ -8,6 +8,7 @@
 html {
     scroll-behavior: smooth;
     width: 100%;
+    
 }
 
 body {
@@ -54,13 +55,28 @@ nav ul li a {
 nav ul li a:hover { /*muda quando o cursor do mouse é colocado em cima*/
     padding: 5px; /*se desloca levemente*/
     border-radius: 30px;
-    background-color: whitesmoke;
     transition: 0.5s; /*na hora de ir pro hover*/
     color: black;
 }
+  *::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: #ffffff;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #ff6417;
+    border: 3px solid #ff6417;
+  }
+
+.separador_navbar{
+    color: #ff6417;
+}
 
 .container .logo-preto-home {
-    width: 65%;
+    width: 55%;
     display: flex;
     align-self: flex-end;
     margin-left: auto; /*garantir que a imagem fica a direita*/
@@ -69,7 +85,7 @@ nav ul li a:hover { /*muda quando o cursor do mouse é colocado em cima*/
 
 .container .logo-laranja-home {
     position: absolute;
-    top: 22vw;
+    top: 15vw;
     left: 7vw;
     width: 15vw;
 }
@@ -80,7 +96,7 @@ nav ul li a:hover { /*muda quando o cursor do mouse é colocado em cima*/
     font-size: 15vw;
     font-weight: 900;
     position: absolute;
-    top: 18vw;
+    top: 12vw;
     left: 22vw;
 }
 
@@ -92,7 +108,7 @@ nav ul li a:hover { /*muda quando o cursor do mouse é colocado em cima*/
     position: absolute;
     line-height: 1.15;
     letter-spacing: 5px;
-    top: 38vw;
+    top: 30vw;
     left: 8vw;
 }
 

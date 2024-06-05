@@ -3,11 +3,11 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box; /* limitar height e width*/
-    font-family: 'Poppins', sans-serif;
 }
 
 
 body {
+    font-family: 'Poppins', sans-serif;
     margin: 0; /*padding 0 inicialmente */
     background-color: #ededed; 
 }
@@ -30,6 +30,10 @@ nav {
 
 nav .logo {
     width: 80px;
+}
+
+.separador_navbar{
+    color: #ff6417;
 }
 
 nav ul li {
@@ -189,6 +193,44 @@ nav ul li a:hover { /*muda quando o cursor do mouse é colocado em cima*/
 }
 
 
+
+
+
+.kpi-container {
+    position: absolute;
+    top: 55vh;
+    right: 4vw;
+    background-color: whitesmoke;
+    color: #ff6417;
+    padding: 10px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-size: 18px;
+    font-weight: bold;
+    z-index: 1000; /* Para garantir que esteja acima de outros elementos */
+}
+
+.kpi-container p {
+    margin: 0;
+}
+
+.kpi2-container {
+    position: absolute;
+    top: 70vh;
+    right: 4vw;
+    background-color: whitesmoke;
+    color: #ff6417;
+    padding: 10px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-size: 18px;
+    font-weight: bold;
+    z-index: 1000; /* Para garantir que esteja acima de outros elementos */
+}
+
+.kpi2-container p {
+    margin: 0;
+}
 
 
 
